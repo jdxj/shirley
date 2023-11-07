@@ -1,11 +1,11 @@
 package main
 
 import (
-	_ "shirley/internal/packed"
+	_ "github.com/jdxj/shirley/internal/packed"
 
 	"github.com/gogf/gf/v2/os/gctx"
 
-	"shirley/internal/cmd"
+	"github.com/jdxj/shirley/internal/cmd"
 )
 
 func main() {

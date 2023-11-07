@@ -2,7 +2,10 @@ module github.com/jdxj/shirley
 
 go 1.21
 
-require github.com/gogf/gf/v2 v2.5.2
+require (
+	github.com/gogf/gf/v2 v2.5.2
+	github.com/golang-jwt/jwt/v5 v5.0.0
+)
 
 require (
 	github.com/BurntSushi/toml v1.2.0 // indirect

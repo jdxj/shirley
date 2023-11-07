@@ -7,7 +7,8 @@ import (
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/os/gcmd"
 
-	"shirley/internal/controller/hello"
+	"github.com/jdxj/shirley/internal/controller/token"
+	"github.com/jdxj/shirley/internal/middleware"
 )
 
 var (
@@ -20,8 +21,11 @@ var (
 			s.Group("/", func(group *ghttp.RouterGroup) {
 				group.Middleware(ghttp.MiddlewareHandlerResponse)
 				group.Bind(
-					hello.NewV1(),
+					token.NewV1(),
 				)
+			})
+			s.Group("/api", func(group *ghttp.RouterGroup) {
+				group.Middleware(middleware.Auth)
 			})
 			s.Run()
 			return nil

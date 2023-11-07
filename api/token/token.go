@@ -2,15 +2,16 @@
 // Code generated and maintained by GoFrame CLI tool. DO NOT EDIT. 
 // =================================================================================
 
-package hello
+package token
 
 import (
-	"shirley/api/hello"
+	"context"
+	
+	"github.com/jdxj/shirley/api/token/v1"
 )
 
-type ControllerV1 struct{}
-
-func NewV1() hello.IHelloV1 {
-	return &ControllerV1{}
+type ITokenV1 interface {
+	GetToken(ctx context.Context, req *v1.GetTokenReq) (res *v1.GetTokenRes, err error)
 }
+
 
