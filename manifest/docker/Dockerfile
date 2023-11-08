@@ -14,3 +14,4 @@ RUN chmod +x $WORKDIR/main
 ###############################################################################
 WORKDIR $WORKDIR
 CMD ./main
+ENTRYPOINT [""]

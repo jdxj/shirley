@@ -14,6 +14,7 @@ type shirley struct {
 	Name string `v:"required"`
 	Pass string `v:"required"`
 	Key  []byte `v:"required"`
+	Path string `v:"required"`
 }
 
 func init() {

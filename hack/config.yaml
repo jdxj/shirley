@@ -10,3 +10,6 @@ gfcli:
     dao:
       - link: "mysql:root:123456@tcp(127.0.0.1:3306)/dev"
         tables: "shares"
+  build:
+    arch: "arm64,amd64"
+    system: "darwin,linux"
