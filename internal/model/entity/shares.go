@@ -6,7 +6,7 @@ package entity
 
 // Shares is the golang structure for table shares.
 type Shares struct {
-	Id          uint   `json:"id"          ` //
+	Id          uint64 `json:"id"          ` //
 	Number      uint   `json:"number"      ` //
 	Protocol    string `json:"protocol"    ` //
 	Uid         string `json:"uid"         ` //

@@ -5,7 +5,14 @@
 package dao
 
 import (
+	"context"
+
+	_ "github.com/gogf/gf/contrib/drivers/mysql/v2"
+	"github.com/gogf/gf/v2/database/gdb"
+
 	"github.com/jdxj/shirley/internal/dao/internal"
+	"github.com/jdxj/shirley/internal/model/do"
+	"github.com/jdxj/shirley/internal/model/entity"
 )
 
 // internalSharesDao is internal type for wrapping internal DAO implements.
@@ -25,3 +32,34 @@ var (
 )
 
 // Fill with you ideas below.
+
+func (sd sharesDao) GetShares(ctx context.Context) ([]*entity.Shares, error) {
+	var res []*entity.Shares
+	err := sd.Ctx(ctx).OrderAsc("number").Scan(&res)
+	return res, err
+}
+
+func (sd sharesDao) InsertShare(ctx context.Context, data *do.Shares) error {
+	return sd.Transaction(ctx, func(ctx context.Context, tx gdb.TX) error {
+		maxNumber, err := tx.Model(sd.Table()).Ctx(ctx).
+			LockUpdate().Max("number")
+		if err != nil {
+			return err
+		}
+		data.Number = maxNumber + 1
+
+		data.Id, err = tx.Model(sd.Table()).Ctx(ctx).
+			InsertAndGetId(data)
+		return err
+	})
+}
+
+func (sd sharesDao) DeleteShare(ctx context.Context, id uint64) error {
+	_, err := sd.Ctx(ctx).Delete("id = ?", id)
+	return err
+}
+
+func (sd sharesDao) UpdateShare(ctx context.Context, id uint64, data *do.Shares) error {
+	_, err := sd.Ctx(ctx).Data(data).Where("id = ?", id).Update()
+	return err
+}

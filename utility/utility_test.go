@@ -3,6 +3,8 @@ package utility
 import "testing"
 
 func TestNewToken(t *testing.T) {
+	t.Parallel()
+
 	key := []byte("abc")
 	sign, err := NewToken(key)
 	if err != nil {
