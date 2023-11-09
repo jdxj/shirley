@@ -1,8 +1,12 @@
-FROM loads/alpine:3.8
+FROM alpine:latest
 
 ###############################################################################
 #                                INSTALLATION
 ###############################################################################
+
+RUN apk update && apk add tzdata ca-certificates bash
+RUN rm -rf /etc/localtime && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN echo "Asia/Shanghai" > /etc/timezone
 
 ENV WORKDIR                 /app
 ADD resource                $WORKDIR/
