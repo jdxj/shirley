@@ -18,3 +18,4 @@ temp.yaml
 bin
 
 manifest/config/config.yaml
+manifest/config/config_prod.yaml
