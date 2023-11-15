@@ -35,7 +35,9 @@ var (
 
 func (sd sharesDao) GetShares(ctx context.Context) ([]*entity.Shares, error) {
 	var res []*entity.Shares
-	err := sd.Ctx(ctx).OrderAsc("number").Scan(&res)
+	err := sd.Ctx(ctx).OrderAsc("number").
+		OrderDesc("updated_at").
+		Scan(&res)
 	return res, err
 }
 
