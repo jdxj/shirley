@@ -5,7 +5,7 @@ gfcli:
   docker:
     build: "-a amd64 -s linux -p temp -ew"
     tagPrefixes: jdxj
-    tagName: shirley:v1.0.0
+    tagName: shirley:v0.1.0
   gen:
     dao:
       - link: "mysql:root:123456@tcp(127.0.0.1:3306)/dev"
