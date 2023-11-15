@@ -36,6 +36,7 @@ type SharesColumns struct {
 	Sni         string //
 	ShortIds    string //
 	Remarks     string //
+	UpdatedAt   string //
 }
 
 // sharesColumns holds the columns for table shares.
@@ -56,6 +57,7 @@ var sharesColumns = SharesColumns{
 	Sni:         "sni",
 	ShortIds:    "short_ids",
 	Remarks:     "remarks",
+	UpdatedAt:   "updated_at",
 }
 
 // NewSharesDao creates and returns a new DAO object for table data access.

@@ -6,6 +6,7 @@ package do
 
 import (
 	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/os/gtime"
 )
 
 // Shares is the golang structure of table shares for DAO operations like Where/Data.
@@ -27,4 +28,5 @@ type Shares struct {
 	Sni         interface{} //
 	ShortIds    interface{} //
 	Remarks     interface{} //
+	UpdatedAt   *gtime.Time //
 }

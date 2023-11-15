@@ -16,6 +16,6 @@ CREATE TABLE `shares`
     `sni`         varchar(100) NOT NULL,
     `short_ids`   char(16)     NOT NULL,
     `remarks`     varchar(100) NOT NULL,
-    PRIMARY KEY (`id`),
-    UNIQUE KEY `share_UN` (`number`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+    `updated_at`  timestamp NULL DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
