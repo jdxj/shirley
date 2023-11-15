@@ -22,7 +22,7 @@ var (
 			s := g.Server()
 			s.SetLogger(g.Log())
 
-			s.Use(ghttp.MiddlewareHandlerResponse)
+			s.Use(ghttp.MiddlewareHandlerResponse, middleware.CORS)
 			s.Group("/", func(group *ghttp.RouterGroup) {
 				group.Bind(
 					token.NewV1(),
