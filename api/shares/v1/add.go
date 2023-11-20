@@ -10,7 +10,7 @@ type AddShareReq struct {
 	Protocol    string `v:"required"`
 	Uid         string `v:"required"`
 	Address     string `v:"required"`
-	Port        int    `v:"required"`
+	Port        int    `v:"min:1025|max:65535"`
 	Security    string `v:"required"`
 	Encryption  string `v:"required"`
 	PublicKey   string `v:"required"`
