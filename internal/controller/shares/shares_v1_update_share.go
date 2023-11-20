@@ -14,6 +14,7 @@ import (
 
 func (c *ControllerV1) UpdateShare(ctx context.Context, req *v1.UpdateShareReq) (res *v1.UpdateShareRes, err error) {
 	data := &do.Shares{
+		Number:      req.Number,
 		Protocol:    req.Protocol,
 		Uid:         req.Uid,
 		Address:     req.Address,

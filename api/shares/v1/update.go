@@ -6,10 +6,11 @@ type UpdateShareReq struct {
 	g.Meta `path:"/shares/:id" method:"patch"`
 
 	Id          uint64 `v:"required"`
+	Number      any    `v:"min:0|max:255"`
 	Protocol    any
 	Uid         any
 	Address     any
-	Port        any
+	Port        any `v:"min:1025|max:65535"`
 	Security    any
 	Encryption  any
 	PublicKey   any
